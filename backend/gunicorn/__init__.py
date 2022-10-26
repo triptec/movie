@@ -11,6 +11,7 @@ from google.cloud import ndb
 
 from backend.api import application as api_application
 from backend.gunicorn.log_handler import LogHandler
+from backend.setup import setup
 
 ndb_client = ndb.Client()
 
@@ -18,6 +19,10 @@ log_handler = LogHandler()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 logger.addHandler(log_handler)
+
+# setup
+with ndb_client.context():
+    setup()
 
 
 def application(environ, start_response):

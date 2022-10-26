@@ -3,6 +3,7 @@ import unittest
 # activate stubs
 import backend.stub.logging  # noqa F401
 import backend.stub.ndb  # noqa F401
+import backend.stub.omdb_client_wrapper  # noqa F401
 #
 
 from google.cloud import ndb
